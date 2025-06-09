@@ -1,6 +1,6 @@
 
 {
-  "name": "ward10-gpt-bot-geolock",
+  "name": "ward10-gpt-bot-with-override",
   "version": "1.0.0",
   "main": "api/index.js",
   "dependencies": {
