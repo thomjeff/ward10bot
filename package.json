@@ -1,6 +1,6 @@
 
 {
-  "name": "ward10-gpt-bot-updated",
+  "name": "ward10-gpt-bot-final",
   "version": "1.0.0",
   "main": "api/index.js",
   "dependencies": {
