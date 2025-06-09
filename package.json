@@ -1,6 +1,6 @@
 
 {
-  "name": "ward10-gpt-bot-with-override",
+  "name": "ward10-gpt-bot-regexfix",
   "version": "1.0.0",
   "main": "api/index.js",
   "dependencies": {

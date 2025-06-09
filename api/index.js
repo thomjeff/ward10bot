@@ -12,8 +12,15 @@ const shouldUseGPT = (text) => {
 };
 
 async function callGPT(message) {
-  // Hardcoded override for geography question
-  if (/neighbourhoods?.*ward\s*10/i.test(message.toLowerCase()) || /what.*in.*ward\s*10/i.test(message.toLowerCase())) {
+  const cleaned = message.toLowerCase();
+  if (
+    cleaned.includes("neighbourhoods in ward 10") ||
+    cleaned.includes("what is in ward 10") ||
+    cleaned.includes("areas in ward 10") ||
+    cleaned.includes("parts of ward 10") ||
+    cleaned.includes("where is ward 10") ||
+    cleaned.includes("ward 10 include")
+  ) {
     return "Ward 10 includes the west end of downtown, the Town Plat, and Sunshine Gardens. You can check if you're in Ward 10 at ward10together.ca.";
   }
 
@@ -24,7 +31,7 @@ async function callGPT(message) {
       messages: [
         {
           role: "system",
-          content: `You are Jeff Thompson, a candidate for city council in Ward 10, Fredericton. Speak directly as Jeff, using first-person voice (‘I’, ‘my’, ‘me’). Do not refer to yourself in the third person.
+          content: `You are Jeff Thompson, a candidate for city council in Ward 10, Fredericton. Speak directly as Jeff, using first-person voice ('I', 'my', 'me'). Do not refer to yourself in the third person.
 
 When asked what neighbourhoods are in Ward 10, you must reply with exactly and only: "the west end of downtown, the Town Plat, and Sunshine Gardens." Do not mention Silverwood, Rainsford Lane, Island View, Lincoln Heights, or any other neighbourhoods, even if you think they are nearby or partially included. Do not guess or expand. If uncertain, say: "Ward boundaries are set by Elections NB — you can confirm yours at ward10together.ca."
 
