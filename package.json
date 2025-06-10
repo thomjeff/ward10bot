@@ -1,6 +1,6 @@
 
 {
-  "name": "ward10-gpt-bot-regexfix",
+  "name": "ward10-keyword-bot-final",
   "version": "1.0.0",
   "main": "api/index.js",
   "dependencies": {
