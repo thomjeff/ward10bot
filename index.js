@@ -15,7 +15,7 @@ const responses = [
         { content_type: "text", title: "📅 Meet Jeff", payload: "meet" },
         { content_type: "text", title: "🏠 Lawn Sign", payload: "sign" },
         { content_type: "text", title: "🙋‍♂️ Volunteer", payload: "volunteer" },
-        { content_type: "text", title: "💬 Share Thoughts", payload: "issue" }
+        { content_type: "text", title: "💬 Share Thoughts", payload: "issue" },
         { content_type: "text", title: "🌐 Visit Website", payload: "website" }
       ]
     }
@@ -124,7 +124,7 @@ module.exports = async (req, res) => {
                     { content_type: "text", title: "📅 Meet Jeff", payload: "meet" },
                     { content_type: "text", title: "🏠 Lawn Sign", payload: "sign" },
                     { content_type: "text", title: "🙋‍♂️ Volunteer", payload: "volunteer" },
-                    { content_type: "text", title: "💬 Share Thoughts", payload: "issue" }
+                    { content_type: "text", title: "💬 Share Thoughts", payload: "issue" },
                     { content_type: "text", title: "🌐 Visit Website", payload: "website" }
                   ]
                 }
