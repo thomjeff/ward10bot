@@ -79,7 +79,7 @@ const responses = [
   {
     keywords: ["events", "updates", "news", "what's happening", "announcements"],
     reply: "Stay up to date on campaign news, community chats, and priorities by signing up at ward10together.ca/stay-informed"
-  }
+  },
   {
   keywords: ["website"],
   reply: "You can explore everything about the campaign at https://www.ward10together.ca"
