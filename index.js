@@ -7,6 +7,19 @@ const ENABLE_GPT = process.env.ENABLE_GPT === "true";
 
 const responses = [
   {
+    keywords: ["menu", "help", "start", "start over", "options"],
+    reply: {
+      text: "Here are some ways you can get involved or learn more:",
+      quick_replies: [
+        { content_type: "text", title: "📌 Platform", payload: "platform" },
+        { content_type: "text", title: "📅 Meet Jeff", payload: "meet" },
+        { content_type: "text", title: "🏠 Lawn Sign", payload: "sign" },
+        { content_type: "text", title: "🙋‍♂️ Volunteer", payload: "volunteer" },
+        { content_type: "text", title: "💬 Share Thoughts", payload: "issue" }
+      ]
+    }
+  },
+  {
     keywords: ["why running", "why candidate", "why council", "purpose", "campaign reason"],
     reply: "I’m running because I believe Ward 10 deserves a transparent, responsive voice at City Hall. With decades of leadership in innovation, community development, and volunteer service, I’m ready to represent our community and help shape a more connected and inclusive Fredericton."
   },
@@ -66,19 +79,6 @@ const responses = [
     keywords: ["events", "updates", "news", "what's happening", "announcements"],
     reply: "Stay up to date on campaign news, community chats, and priorities by signing up at ward10together.ca/stay-informed"
   }
-  {
-  keywords: ["menu", "help", "start", "start over", "options"],
-  reply: {
-    text: "Here are some ways you can get involved or learn more:",
-    quick_replies: [
-      { content_type: "text", title: "📌 Platform", payload: "platform" },
-      { content_type: "text", title: "📅 Meet Jeff", payload: "meet" },
-      { content_type: "text", title: "🏠 Lawn Sign", payload: "sign" },
-      { content_type: "text", title: "🙋‍♂️ Volunteer", payload: "volunteer" },
-      { content_type: "text", title: "💬 Share Thoughts", payload: "issue" }
-    ]
-  }
-}
 ];
 
 function findKeywordMatch(text) {
@@ -136,22 +136,11 @@ module.exports = async (req, res) => {
               reply = findKeywordMatch(messageText);
             }
 
-          const messagePayload = typeof reply === 'string'
-              ? { text: reply }
-              : reply;
-
-          await axios.post(
-              `https://graph.facebook.com/v19.0/me/messages?access_token=${PAGE_ACCESS_TOKEN}`,
-              {
-                recipient: { id: senderId },
-                message: messagePayload
-              }
-              );
             await axios.post(
               `https://graph.facebook.com/v19.0/me/messages?access_token=${PAGE_ACCESS_TOKEN}`,
               {
                 recipient: { id: senderId },
-                message: { text: reply }
+                message: typeof reply === "string" ? { text: reply } : reply
               }
             );
           }
