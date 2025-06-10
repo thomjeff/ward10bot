@@ -71,7 +71,7 @@ const responses = [
 function findKeywordMatch(text) {
   const cleaned = text.toLowerCase();
   for (const { keywords, reply } of responses) {
-    if (keywords.some(keyword => cleaned.includes(keyword))) {
+    if (keywords.some(keyword => new RegExp(`\\b${keyword}\\b`, 'i').test(cleaned))) {
       return reply;
     }
   }
@@ -91,11 +91,24 @@ module.exports = async (req, res) => {
       for (const entry of body.entry) {
         for (const event of entry.messaging) {
           const senderId = event.sender.id;
-          const messageText = event.message?.text;
 
+          // Welcome message on first contact
+          if (event.postback?.payload === 'GET_STARTED') {
+            await axios.post(
+              `https://graph.facebook.com/v19.0/me/messages?access_token=${PAGE_ACCESS_TOKEN}`,
+              {
+                recipient: { id: senderId },
+                message: {
+                  text: "Hi, I’m Jeff Thompson — candidate for City Council in Ward 10. I’m glad you reached out. You can always contact me or learn more at ward10together.ca."
+                }
+              }
+            );
+            continue;
+          }
+
+          const messageText = event.message?.text;
           if (messageText) {
             let reply;
-
             if (ENABLE_GPT) {
               reply = "Thanks for your message. GPT functionality is currently enabled — but keyword bot replies are turned off.";
             } else {
