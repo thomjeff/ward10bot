@@ -25,7 +25,7 @@ const responses = [
   },
   {
     keywords: ["platform", "priorities", "goals", "what do you stand for"],
-    reply: "I’m focused on five core commitments: Transparent Governance, Smart and Inclusive Growth, Affordable Housing, Livable Neighbourhoods, and Fiscal Responsibility. You can learn more at ward10together.ca."
+    reply: "I’m focused on five core commitments: Transparent Governance, Smart and Inclusive Growth, Affordable Housing, Livable Neighbourhoods, and Fiscal Responsibility. You can learn more at ward10together.ca/commitments."
   },
   {
     keywords: ["what is ward 10", "where is ward 10", "neighbourhoods in ward 10", "parts of ward 10"],
@@ -37,11 +37,11 @@ const responses = [
   },
   {
     keywords: ["volunteer", "help out", "campaign team", "get involved"],
-    reply: "We’d love to have your help! Whether it’s door-to-door outreach, sign delivery, or phone calls, there’s a place for you. Visit ward10together.ca/get-involved to sign up."
+    reply: "We’d love to have your help! Whether it’s door-to-door outreach, sign delivery, or phone calls, there’s a place for you. Visit ward10together.ca/getinvolved to sign up."
   },
   {
     keywords: ["lawn sign", "yard sign", "campaign sign"],
-    reply: "Lawn signs are a great way to show support! You can request one here: ward10together.ca/lawn-sign"
+    reply: "Lawn signs are a great way to show support! You can request one here: ward10together.ca/lawnsign"
   },
   {
     keywords: ["donate", "contribute", "e-transfer", "make a donation", "financial contribution", "donation options"],
@@ -49,11 +49,11 @@ const responses = [
   },
   {
     keywords: ["coffee chat", "meet jeff", "talk with jeff", "book a meeting", "schedule a conversation"],
-    reply: "Let’s connect! You can book a one-on-one or group conversation with me here: ward10together.ca/meet"
+    reply: "Let’s connect! You can book a one-on-one or group conversation with me here: ward10together.ca/book"
   },
   {
     keywords: ["issue", "concern", "question", "problem", "feedback", "something to say"],
-    reply: "I want to hear what matters most to you. Please share your thoughts at ward10together.ca/share"
+    reply: "I want to hear what matters most to you. Please share your thoughts at ward10together.ca/yourvoice"
   },
   {
     keywords: ["transparency", "open meetings", "council committee", "decision making"],
