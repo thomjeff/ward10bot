@@ -3,6 +3,7 @@ const axios = require('axios');
 
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
+const ENABLE_GPT = process.env.ENABLE_GPT === "true";
 
 const responses = [
   {
@@ -79,7 +80,7 @@ function findKeywordMatch(text) {
 
 module.exports = async (req, res) => {
   if (req.method === 'GET') {
-    if (req.query['hub.verify_token'] === process.env.VERIFY_TOKEN) {
+    if (req.query['hub.verify_token'] === VERIFY_TOKEN) {
       res.status(200).send(req.query['hub.challenge']);
     } else {
       res.status(403).send('Verification failed');
@@ -93,7 +94,14 @@ module.exports = async (req, res) => {
           const messageText = event.message?.text;
 
           if (messageText) {
-            const reply = findKeywordMatch(messageText);
+            let reply;
+
+            if (ENABLE_GPT) {
+              reply = "Thanks for your message. GPT functionality is currently enabled — but keyword bot replies are turned off.";
+            } else {
+              reply = findKeywordMatch(messageText);
+            }
+
             await axios.post(
               `https://graph.facebook.com/v19.0/me/messages?access_token=${PAGE_ACCESS_TOKEN}`,
               {
