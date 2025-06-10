@@ -92,14 +92,22 @@ module.exports = async (req, res) => {
         for (const event of entry.messaging) {
           const senderId = event.sender.id;
 
-          // Welcome message on first contact
-          if (event.postback?.payload === 'GET_STARTED') {
+          // More flexible GET_STARTED payload match
+          const payload = event.postback?.payload;
+          if (payload && payload.toUpperCase().includes("GET_STARTED")) {
             await axios.post(
               `https://graph.facebook.com/v19.0/me/messages?access_token=${PAGE_ACCESS_TOKEN}`,
               {
                 recipient: { id: senderId },
                 message: {
-                  text: "Hi, I’m Jeff Thompson — candidate for City Council in Ward 10. I’m glad you reached out. You can always contact me or learn more at ward10together.ca."
+                  text: "Hi, I’m Jeff Thompson — candidate for City Council in Ward 10. I’m glad you reached out. You can always contact me or learn more at ward10together.ca.",
+                  quick_replies: [
+                    { content_type: "text", title: "📌 Platform", payload: "platform" },
+                    { content_type: "text", title: "📅 Meet Jeff", payload: "meet" },
+                    { content_type: "text", title: "🏠 Lawn Sign", payload: "sign" },
+                    { content_type: "text", title: "🙋‍♂️ Volunteer", payload: "volunteer" },
+                    { content_type: "text", title: "💬 Share Thoughts", payload: "issue" }
+                  ]
                 }
               }
             );

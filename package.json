@@ -1,6 +1,6 @@
 
 {
-  "name": "ward10-keyword-bot-finalfix",
+  "name": "ward10-keyword-bot-getstartedfix",
   "version": "1.0.0",
   "main": "api/index.js",
   "dependencies": {
