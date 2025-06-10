@@ -11,11 +11,11 @@ const responses = [
     reply: "I’m running because I believe Ward 10 deserves a transparent, responsive voice at City Hall. With decades of leadership in innovation, community development, and volunteer service, I’m ready to represent our community and help shape a more connected and inclusive Fredericton."
   },
   {
-    keywords: ["platform", "priorities", "goals", "what do you stand for", "values"],
+    keywords: ["platform", "priorities", "goals", "what do you stand for"],
     reply: "I’m focused on five core commitments: Transparent Governance, Smart and Inclusive Growth, Affordable Housing, Livable Neighbourhoods, and Fiscal Responsibility. You can learn more at ward10together.ca."
   },
   {
-    keywords: ["what is ward 10", "where is ward 10", "neighbourhoods in ward 10", "parts of ward 10", "live in ward 10", "am I in ward 10"],
+    keywords: ["what is ward 10", "where is ward 10", "neighbourhoods in ward 10", "parts of ward 10"],
     reply: "Ward 10 includes the west end of downtown, the Town Plat, and Sunshine Gardens. You can confirm your address at ward10together.ca."
   },
   {
@@ -23,7 +23,7 @@ const responses = [
     reply: "I’ve spent my career building organizations that drive innovation, education, and community impact. I’ve served on boards like Science East, Knowledge Park, and GFCEDA, and I’ve volunteered with the Fredericton Marathon and Community Kitchens. Learn more at ward10together.ca/about."
   },
   {
-    keywords: ["volunteer", "help out", "campaign team", "get involved", "help"],
+    keywords: ["volunteer", "help out", "campaign team", "get involved"],
     reply: "We’d love to have your help! Whether it’s door-to-door outreach, sign delivery, or phone calls, there’s a place for you. Visit ward10together.ca/get-involved to sign up."
   },
   {
@@ -31,7 +31,7 @@ const responses = [
     reply: "Lawn signs are a great way to show support! You can request one here: ward10together.ca/lawn-sign"
   },
   {
-    keywords: ["donate", "contribute", "e-transfer", "support financially"],
+    keywords: ["donate", "contribute", "e-transfer", "make a donation", "financial contribution", "donation options"],
     reply: "Thanks for considering a donation — your support helps with outreach, materials, and events. Visit ward10together.ca/donate for details."
   },
   {
