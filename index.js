@@ -16,6 +16,7 @@ const responses = [
         { content_type: "text", title: "🏠 Lawn Sign", payload: "sign" },
         { content_type: "text", title: "🙋‍♂️ Volunteer", payload: "volunteer" },
         { content_type: "text", title: "💬 Share Thoughts", payload: "issue" }
+        { content_type: "text", title: "🌐 Visit Website", payload: "website" }
       ]
     }
   },
@@ -52,7 +53,7 @@ const responses = [
     reply: "Let’s connect! You can book a one-on-one or group conversation with me here: ward10together.ca/book"
   },
   {
-    keywords: ["issue", "concern", "question", "problem", "feedback", "something to say"],
+    keywords: ["issue", "concern", "question", "problem", "feedback", "something to say", "share thoughts"],
     reply: "I want to hear what matters most to you. Please share your thoughts at ward10together.ca/yourvoice"
   },
   {
@@ -78,6 +79,10 @@ const responses = [
   {
     keywords: ["events", "updates", "news", "what's happening", "announcements"],
     reply: "Stay up to date on campaign news, community chats, and priorities by signing up at ward10together.ca/stay-informed"
+  }
+  {
+  keywords: ["website"],
+  reply: "You can explore everything about the campaign at https://www.ward10together.ca"
   }
 ];
 
@@ -120,6 +125,7 @@ module.exports = async (req, res) => {
                     { content_type: "text", title: "🏠 Lawn Sign", payload: "sign" },
                     { content_type: "text", title: "🙋‍♂️ Volunteer", payload: "volunteer" },
                     { content_type: "text", title: "💬 Share Thoughts", payload: "issue" }
+                    { content_type: "text", title: "🌐 Visit Website", payload: "website" }
                   ]
                 }
               }
