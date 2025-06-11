@@ -120,7 +120,7 @@ module.exports = async (req, res) => {
               {
                 recipient: { id: senderId },
                 message: {
-                  text: "Hi, I’m Jeff Thompson — candidate for City Council in Ward 10. I’m glad you reached out. You can always contact me or learn more at ward10together.ca.",
+                  text: "Hi, I’m Jeff Thompson — candidate for City Council in Ward 10 for the May 2026 municipal election. I’m glad you reached out! Use the quick links below to explore priorities, get involved, or connect. You can also visit ward10together.ca to contact the campaign directly.",
                   quick_replies: [
                     { content_type: "text", title: "📌 Platform", payload: "platform" },
                     { content_type: "text", title: "📅 Meet Jeff", payload: "meet" },
