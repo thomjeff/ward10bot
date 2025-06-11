@@ -5,6 +5,8 @@ const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const ENABLE_GPT = process.env.ENABLE_GPT === "true";
 
+const fallbackTracker = new Set();
+
 const responses = [
   {
     keywords: ["menu", "help", "start", "start over", "options"],
@@ -133,14 +135,25 @@ module.exports = async (req, res) => {
             continue;
           }
 
-          const messageText = event.message?.text;
-          if (messageText) {
-            let reply;
-            if (ENABLE_GPT) {
-              reply = "Thanks for your message. GPT functionality is currently enabled — but keyword bot replies are turned off.";
+        const messageText = event.message?.text;
+        if (messageText) {
+          let reply;
+
+        if (ENABLE_GPT) {
+          reply = "Thanks for your message. GPT functionality is currently enabled — and keyword bot replies are turned off.";
+        } else {
+          reply = findKeywordMatch(messageText);
+
+        // If it's the default fallback message, only send it once
+        const fallbackMsg = "Thanks for your message. A member of our campaign team will get back to you. You can also call or text +1 (506) 715-5525 or email contact@ward10together.ca.";
+        if (reply === fallbackMsg) {
+            if (fallbackTracker.has(senderId)) {
+              return res.status(200).send("Fallback suppressed.");
             } else {
-              reply = findKeywordMatch(messageText);
+              fallbackTracker.add(senderId);
+              }
             }
+          }
 
             await axios.post(
               `https://graph.facebook.com/v19.0/me/messages?access_token=${PAGE_ACCESS_TOKEN}`,
